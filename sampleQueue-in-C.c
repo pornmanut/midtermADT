@@ -47,6 +47,10 @@ void Delete(TYPE_QUEUE *queue,char *item){
     //set queue that remove to zero for easy to understand
     queue -> Items[queue -> Front] = ' ';
     (queue -> Front)++;
+    //resize
+    if(queue -> Front == queue -> Rear){
+      queue -> Front = queue -> Rear = 0;
+    }
   }else{
       *item = ' ';
       printf("Can't Remove: QueueIsUnderFlow\n");
